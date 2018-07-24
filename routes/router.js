@@ -52,4 +52,8 @@ router.get('/api/users/:username/repos', cacheMiddleware(3600), (req, res, next)
   })
 })
 
+router.get('/', (req, res) => {
+    res.sendFile('index.html', {root: './react-app'});
+});
+
 module.exports = router;

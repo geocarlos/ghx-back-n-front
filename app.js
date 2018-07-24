@@ -2,10 +2,14 @@ const express = require('express');
 const createError = require('http-errors');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const path = require('path');
 
 const router = require('./routes/router');
 
 const app = express();
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'react-app')))
 
 app.use(logger('dev'));
 app.use(express.json());
